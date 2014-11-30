@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:i="http://java.sun.com/jsf/facelets">
+<h:head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+
+</h:head>
+<i:include src="/header.xhtml" />
+<h:body>
+	<br/>
+		<h:form>
+			<h:commandLink value="Criar Animal" action="#{animalBeans.criarAnimal}" />
+			<center>
+			<h:dataTable value="#{animalBeans.animais}" var="animal">
+				<f:facet name="header">Lista de Animais</f:facet> 	
+				<h:column>
+					<f:facet name="header">Nome</f:facet> 
+					<h:outputText value="#{animal.nome}" /> 		
+				</h:column>
+				<h:column>
+					<f:facet name="header">Preço</f:facet>
+					<h:outputText value="#{animal.preco}" /> 		
+				</h:column>
+				<h:column>
+					<f:facet name="header">Peso</f:facet> 	
+					<h:outputText value="#{animal.peso}" /> 	
+				</h:column>
+				<h:column>
+					<f:facet name="header">Quantidade</f:facet> 	
+					<h:outputText value="#{animal.quantdade}" /> 	
+				</h:column>
+				<h:column>
+					<f:facet name="header">Quantidade</f:facet> 	
+					<h:outputText value="#{animal.tipo.nome}" /> 	
+				</h:column>
+				<h:column>
+					<f:facet name="header">Fornecedor</f:facet> 	
+					<h:outputText value="#{animal.pessoaJuridica.nome}" /> 	
+				</h:column>
+			</h:dataTable>
+			</center>
+		</h:form>
+
+	<i:include src="/footer.xhtml" />
+</h:body>
+</html>

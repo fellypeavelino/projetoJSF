@@ -1,0 +1,50 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+<h:head>
+	<title>#{msgs['sistema.titulo']} - <ui:insert name="titulo"></ui:insert></title>
+	<h:outputStylesheet name="styles-PSC.css" library="css"></h:outputStylesheet>
+</h:head>
+<h:body styleClass="ui-picklist">
+	<f:view locale="#{user.locale}">
+		<p:fieldset legend="#{msgs['sistema.titulo']}">
+			<p:growl id="messages" />
+			<p:layout style="min-width:400px;min-height:600px;">
+				<h:form>
+
+					<p:layoutUnit position="west" resizable="true" size="200"
+						minSize="40" maxSize="300">
+
+						<p:menu>
+							<p:submenu label="Administrativo">
+								<p:menuitem value="Cidade" action="#{menuMB.exibirCidade}" />
+								<p:menuitem value="Categoria" action="#{menuMB.exibirCategoria}" />
+								<p:menuitem value="Produto" action="#{menuMB.exibirCidade}" />
+								<p:menuitem value="Fornecedor" action="#{menuMB.exibirCidade}" />
+							</p:submenu>
+							<p:submenu label="Comercial">
+								<p:menuitem value="Cliente" action="#{menuMB.exibirCidade}" />
+								<p:menuitem value="Pedido" action="#{menuMB.exibirCidade}" />
+							</p:submenu>
+							<p:submenu label="">
+								<p:menuitem value="Alterar senha"
+									action="#{menuMB.exibirCidade}" />
+								<p:menuitem value="Sair" action="#{loginMB.efetuarLogoff}" />
+							</p:submenu>
+						</p:menu>
+					</p:layoutUnit>
+				</h:form>
+				<p:layoutUnit position="center">
+					<ui:insert name="principal" />
+				</p:layoutUnit>
+			</p:layout>
+
+			<div class="ui-widget" style="height: 25px; text-align: right">
+				#{msgs.copyright}</div>
+		</p:fieldset>
+	</f:view>
+  </h:body>
+</html>

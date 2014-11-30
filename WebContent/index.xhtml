@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+<h:head>
+	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+	<h:outputStylesheet name="styles-PSC.css" library="css"></h:outputStylesheet>
+	<style>
+		table{
+			border:1px solid;
+		}
+	</style>
+</h:head>
+<h:body>
+	<h:form>
+		<hr/>
+		<h4 style="color:red; text-align:center; background-color:yellow; font-size:20px">#{loginBeans.alertarLoginInvalido}</h4>
+		<table align="center">
+			<tr>
+				<td>
+					Ususario:
+				</td>
+				<td>
+					<h:inputText value="#{loginBeans.pessoaFisica.cpf}" />
+				</td>
+			</tr>
+			<tr>
+				<td>
+					Senha:
+				</td>
+				<td>
+					<h:inputSecret value="#{loginBeans.pessoaFisica.senha}" />
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<h:commandButton value="Logar" action="#{loginBeans.fazerLoginPessoaFisica}" />
+				</td>
+			</tr>
+		</table>
+	</h:form>
+</h:body>
+</html>

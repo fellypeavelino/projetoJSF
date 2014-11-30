@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:i="http://java.sun.com/jsf/facelets">
+<h:head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+</h:head>
+<i:include src="/header.xhtml" />
+<h:body>
+	<br/>
+	<h:form>
+		<center>
+		<table>
+			<tr style="visibility:hidden;">
+				<td>
+					<h:inputText value="#{pessoaJuridicaBeans.pessoaJuridica.codigo}" />
+				</td>
+				<td>
+					<h:inputText value="#{pessoaJuridicaBeans.endereco.codigo}" />
+				</td>
+			</tr>
+			<tr>
+				<td>
+					Responsavel:
+				</td>
+				<td>
+					<h:inputText value="#{pessoaJuridicaBeans.pessoaJuridica.nome}" />
+				</td>
+			</tr>
+			<tr>
+				<td>
+					Nome Fantasia:
+				</td>
+				<td>
+					<h:inputText value="#{pessoaJuridicaBeans.pessoaJuridica.nomeFantasia}" />
+				</td>
+			</tr>
+			<tr>
+				<td>
+					Razão Social:
+				</td>
+				<td>
+					<h:inputText value="#{pessoaJuridicaBeans.pessoaJuridica.razaoSocial}" />
+				</td>
+			</tr>
+			<tr>
+				<td>
+					CNPJ:
+				</td>
+				<td>
+					<h:inputText value="#{pessoaJuridicaBeans.pessoaJuridica.cnpj}" />
+				</td>
+			</tr>
+			<tr>
+				<td>
+					Telefone:
+				</td>
+				<td>
+					<h:inputText value="#{pessoaJuridicaBeans.pessoaJuridica.telefone}" />
+				</td>
+			</tr>
+			<tr>
+				<td>
+					Senha:
+				</td>
+				<td>
+					<h:inputSecret value="#{pessoaJuridicaBeans.pessoaJuridica.senha}" />
+				</td>
+			</tr>
+			<tr>
+				<td>
+					E-mail:
+				</td>
+				<td>
+					<h:inputText value="#{pessoaJuridicaBeans.pessoaJuridica.mail}" />
+				</td>
+			</tr>
+			<tr>
+				<td>
+					Bairro:
+				</td>
+				<td>
+					<h:inputText value="#{pessoaJuridicaBeans.endereco.bairro}" />
+				</td>
+			</tr>
+			<tr>
+				<td>
+					Cep:
+				</td>
+				<td>
+					<h:inputText value="#{pessoaJuridicaBeans.endereco.cep}" />
+				</td>
+			</tr>
+			<tr>
+				<td>
+					Estado:
+				</td>
+				<td>
+					<h:inputText value="#{pessoaJuridicaBeans.endereco.estado}" />
+				</td>
+			</tr>
+			<tr>
+				<td>
+					Municipio:
+				</td>
+				<td>
+					<h:inputText value="#{pessoaJuridicaBeans.endereco.municipio}" />
+				</td>
+			</tr>
+			<tr>
+				<td>
+					Pais:
+				</td>
+				<td>
+					<h:inputText value="#{pessoaJuridicaBeans.endereco.pais}" />
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<h:commandButton value="atualizar" action="#{pessoaJuridicaBeans.cadastrarAtualizacaoPessoaJuridica}" />
+				</td>
+			</tr>
+		</table>
+		</center>
+	</h:form>
+	<i:include src="/footer.xhtml" />
+</h:body>
+</html>

@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:i="http://java.sun.com/jsf/facelets">
+<h:head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+</h:head>
+<i:include src="/header.xhtml" />
+<h:body>
+	<label style="color:red;background-color:yellow;">
+		#{cotacaoBeans.mensagens}
+	</label>
+	<h:messages errorStyle="color:red; display:block; background-color:yellow;" />
+	<center>
+		<h:form>
+			<br/>
+			<table>
+				<tr>
+					<th colspan="2">
+						Diga a quantidade de Produtos desejado
+					</th>
+				</tr>
+				<tr style="display:none;">
+					<td>
+						<h:inputText value="#{cotacaoBeans.cotacao.codigo}" />
+					</td>
+				</tr>
+				<tr>
+					<td>Nome</td>
+					<td>
+						<h:outputText value="#{cotacaoBeans.cotacao.nome}" />
+					</td>
+				</tr>
+				<tr>
+					<td>Preco</td>
+					<td>
+						<h:outputText value="#{cotacaoBeans.cotacao.preco}" />
+					</td>
+				</tr>
+				<tr>
+					<td>Quantidade</td>
+					<td>
+						<h:inputText value="#{cotacaoBeans.cotacao.quantiddae}" />
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<h:commandButton value="Adicionar ao Carrinho" action="#{compraBeans.carrinhoDeCotacao(cotacaoBeans.cotacao.codigo, cotacaoBeans.cotacao.quantiddae)}" />
+					</td>
+					<td>
+						<h:commandButton value="Comprar" action="#{compraBeans.realizarCompraDeCotacao(cotacaoBeans.cotacao.codigo, cotacaoBeans.cotacao.quantiddae)}"  />
+					</td>
+				</tr>
+			</table>
+		</h:form>
+	</center>
+	<i:include src="/footer.xhtml" />
+</h:body>
+</html>

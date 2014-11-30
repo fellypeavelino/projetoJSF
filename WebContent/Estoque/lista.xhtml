@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:i="http://java.sun.com/jsf/facelets">
+<h:head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+
+</h:head>
+<i:include src="/header.xhtml" />
+<h:body>
+	<br/>
+	<h:form>
+		<h:commandLink action="#{estoqueBeans.criarEstoque}" value="Criar Pessoas" />
+	<center>
+		<label style="color:#709fe0;">
+			#{estoqueBeans.mensagens}
+		</label>
+		<h:dataTable id="table2" value="#{estoqueBeans.estoques}" var="estoque">
+			<f:facet name="header">Estoques existentes</f:facet> 
+			<h:column>
+				<f:facet name="header">Estoque</f:facet> 
+				<h:outputText value="Estoque#{estoque.codigo}" />	
+			</h:column>
+			<h:column>
+				<f:facet name="header">Prazo</f:facet> 
+				<h:outputText value="#{estoque.prazo}" />	
+			</h:column>
+			<h:column>
+				<f:facet name="header">Quantidade</f:facet> 
+				<h:outputText value="#{estoque.quantidade}" />	
+			</h:column>
+			<h:column>
+				<f:facet name="header">Atualizar</f:facet> 
+				<h:commandButton value="atualizar" action="#{estoqueBeans.atualizarEstoque(estoque)}"/>
+			</h:column>
+			<h:column>
+				<f:facet name="header">Remover</f:facet> 
+				<h:commandButton value="remover" action="#{estoqueBeans.removerEstoque(estoque)}"/>
+			</h:column>
+		</h:dataTable>
+	</center>
+	</h:form>
+	<i:include src="/footer.xhtml" />
+</h:body>
+</html>

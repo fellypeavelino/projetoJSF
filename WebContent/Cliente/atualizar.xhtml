@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:i="http://java.sun.com/jsf/facelets">
+<h:head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+</h:head>
+<i:include src="/header.xhtml" />
+<h:body>
+	<br/>
+	<h:form>
+	<h:commandLink action="#{pessoaFisicaBeans.ListarPessoas}" value="lista" />
+		<center>
+		<table>
+			<tr style="visibility:hidden;">
+				<td>
+					<h:inputText value="#{pessoaFisicaBeans.endereco.codigo}" />
+				</td>
+				<td>
+					<h:inputText value="#{pessoaFisicaBeans.pessoaFisca.codigo}" />
+				</td>
+			</tr>
+			<tr>
+				<td>
+					Nome:
+				</td>
+				<td>
+					<h:inputText value="#{pessoaFisicaBeans.pessoaFisca.nome}" />
+				</td>
+			</tr>
+			<tr>
+				<td>
+					E-mail:
+				</td>
+				<td>
+					<h:inputText value="#{pessoaFisicaBeans.pessoaFisca.mail}" />
+				</td>
+			</tr>
+			<tr>
+				<td>
+					Senha:
+				</td>
+				<td>
+					<h:inputSecret value="#{pessoaFisicaBeans.pessoaFisca.senha}" />
+				</td>
+			</tr>
+			<tr>
+				<td>
+					Telefone:
+				</td>
+				<td>
+					<h:inputText value="#{pessoaFisicaBeans.pessoaFisca.telefone}" />
+				</td>
+			</tr>
+			<tr>
+				<td>
+					CPF:
+				</td>
+				<td>
+					<h:inputText value="#{pessoaFisicaBeans.pessoaFisca.cpf}" />
+				</td>
+			</tr>
+			<tr>
+				<td>
+					Celular:
+				</td>
+				<td>
+					<h:inputText value="#{pessoaFisicaBeans.pessoaFisca.celular}" />
+				</td>
+			</tr>
+			<tr>
+				<td>
+					Sexo:
+				</td>
+				<td>
+					<h:selectOneMenu  value="#{pessoaFisicaBeans.pessoaFisca.sexo}">
+						<f:selectItem  itemLabel="Masculino" itemValue="M"/>  
+						<f:selectItem  itemLabel="Feminino" itemValue="F"/>  
+					</h:selectOneMenu>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					Bairro:
+				</td>
+				<td>
+					<h:inputText value="#{pessoaFisicaBeans.endereco.bairro}" />
+				</td>
+			</tr>
+			<tr>
+				<td>
+					Cep:
+				</td>
+				<td>
+					<h:inputText value="#{pessoaFisicaBeans.endereco.cep}" />
+				</td>
+			</tr>
+			<tr>
+				<td>
+					Estado:
+				</td>
+				<td>
+					<h:inputText value="#{pessoaFisicaBeans.endereco.estado}" />
+				</td>
+			</tr>
+			<tr>
+				<td>
+					Municipio:
+				</td>
+				<td>
+					<h:inputText value="#{pessoaFisicaBeans.endereco.municipio}" />
+				</td>
+			</tr>
+			<tr>
+				<td>
+					Pais:
+				</td>
+				<td>
+					<h:inputText value="#{pessoaFisicaBeans.endereco.pais}" />
+				</td>
+			</tr>
+			<tr>
+				<td>
+					Administrador
+				</td>
+				<td>
+					<h:selectOneMenu value="#{pessoaFisicaBeans.pessoaFisca.adminitrador}">
+						<f:selectItem itemLabel="Sim" itemValue="1"/>
+						<f:selectItem itemLabel="Não" itemValue="0"/>
+					</h:selectOneMenu>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<h:commandButton value="Alterar" action="#{pessoaFisicaBeans.cadastrarAtualizacao}" />
+				</td>
+			</tr>
+		</table>
+		</center>
+	</h:form>
+	<i:include src="/footer.xhtml" />
+</h:body>
+</html>

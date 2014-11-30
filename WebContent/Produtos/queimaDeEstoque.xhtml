@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:i="http://java.sun.com/jsf/facelets">
+<h:head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+</h:head>
+<i:include src="/header.xhtml" />
+<h:body>
+	<h:form>
+		<br/>
+		<center>
+		<table>
+			<thead>
+				<tr>
+					<td colspan="2">
+						<b>Produto com desconto de 20%</b>
+					</td>
+				</tr>
+			</thead>
+			<tbody>
+				<tr style="display:none;">
+					<td>
+						<h:inputText value="#{produtoBeans.queimaEstoque.codigo}"   />
+					</td>
+				</tr>
+				<tr>
+					<td>
+						Nome:
+					</td>
+					<td>
+						<h:inputText value="#{produtoBeans.queimaEstoque.nome}"   />
+					</td>
+				</tr>
+				<tr>
+					<td>
+						Preço com desconto:
+					</td>
+					<td>
+						<h:inputText value="#{produtoBeans.queimaEstoque.preco}" />
+					</td>
+				</tr>
+				<tr>
+					<td>
+						Unidades disponiveis:
+					</td>
+					<td>
+						<h:inputText value="#{produtoBeans.queimaEstoque.quantiddae}" />
+					</td>
+				</tr>
+				<tr>
+					<td>
+						Estoques:
+					</td>
+					<td>
+						<h:selectOneMenu  value="#{produtoBeans.estoque.codigo}">
+							<f:selectItems  value="#{produtoBeans.estoques}" var="a"
+								itemLabel="estoque#{a.codigo}" itemValue="#{a.codigo}"/>  
+						</h:selectOneMenu >
+					</td>
+				</tr>
+				<tr>
+					<td>
+						Prazo:
+					</td>
+					<td>
+						<p:calendar id="dtFinal" value="#{produtoBeans.queimaEstoque.saida}" pattern="dd/MM/yyyy" showButtonPanel="true" navigator="true" showOn="button"/> 
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<h:commandButton value="Cadastrar" action="#{produtoBeans.cadastrarCotacao}"/>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+		</center>
+	</h:form>
+	<i:include src="/footer.xhtml" />
+</h:body>
+</html>

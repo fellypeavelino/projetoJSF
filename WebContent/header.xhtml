@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:i="http://java.sun.com/jsf/facelets">
+<h:head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+<h:outputScript library="js" name="jquery.js" />
+<h:outputScript library="js" name="jquery-ui.min.js" />
+<h:outputScript library="js" name="jquery-ui.js" />
+<style>
+	tbody tr{
+		background-color:#F0F0F6;
+	}
+	.header{
+		background-color:#709fe0;
+		color:white;
+	}
+	.header a{
+		color:white;
+	}
+	thead tr{
+		background-color:#e6EEEE;
+	}
+
+</style>
+</h:head>
+<h:body>
+	<h:form>
+	<div style="border:1px solid; background-color:#709fe0;" align="right">
+		<table class="header">
+			<tr class="header">
+				<td>Usuario:</td>
+				<td>
+					#{loginBeans.pessoaFisica.nome}
+				</td>
+			</tr>
+			<tr class="header">
+				<td colspan="2" align="right">
+					<h:commandLink action="#{headerBeans.redirecionarParaInicio}" value="Inicio" />
+				</td>
+			</tr>
+			<tr class="header">
+				<td colspan="2" align="right">
+					<h:commandLink action="#{headerBeans.logout}" value="Sair" />
+				</td>
+			</tr>
+		</table>
+	</div>
+	</h:form>
+</h:body>
+</html>
+

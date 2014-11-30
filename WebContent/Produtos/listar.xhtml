@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:i="http://java.sun.com/jsf/facelets">
+<h:head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+</h:head>
+<i:include src="/header.xhtml" />
+<h:body>
+	<h:form>
+		<h:commandLink value="cadastrar" action="#{produtoBeans.criarProduto}" />
+	</h:form>
+	<center>
+		<label style="color:#709fe0">
+			#{produtoBeans.mensagemPersonalizada}
+		</label>
+			<br/>
+			<h:dataTable value="#{produtoBeans.produtosNavalidade}" var="produto" >
+				<f:facet name="header">Produtos Estoque.</f:facet> 
+				<h:column> 
+					<f:facet name="header">Nome</f:facet> 				
+					<h:outputText value="#{produto.nome}" /> 
+				</h:column> 
+				<h:column> 
+					<f:facet name="header">Preço</f:facet> 				
+					<h:outputText value="#{produto.preco}" /> 
+				</h:column> 
+				<h:column> 
+					<f:facet name="header">Quantidade</f:facet> 				
+					<h:outputText value="#{produto.quantiddae}" /> 
+				</h:column> 
+				<h:column> 
+					<f:facet name="header">Data Entrada</f:facet> 				
+					<h:outputText value="#{produto.entrada}">
+						<f:convertDateTime pattern="dd/MM/yyyy"/>  
+					</h:outputText> 
+				</h:column> 
+				<h:column> 
+					<f:facet name="header">Data saida</f:facet> 				
+					<h:outputText value="#{produto.saida}" style="#{produto.estilo}">
+						<f:convertDateTime pattern="dd/MM/yyyy"/>  
+					</h:outputText> 
+				</h:column> 	
+			</h:dataTable>
+		<h:messages />
+	</center>
+	<i:include src="/footer.xhtml" />
+</h:body>
+</html>

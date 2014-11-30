@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:i="http://java.sun.com/jsf/facelets">
+<h:head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+</h:head>
+<i:include src="/header.xhtml" />
+<h:body>
+	<br/>
+	<h:form>
+		<ul style="display:inline;">
+			<li>
+				<h:commandLink value="Lista Animais" action="#{animalBeans.listarAnimal}" />
+			</li>
+			<li style="text-align:right;">
+				<h:commandLink value="criar novo Tipo" action="#{tipoBeans.criarTipo}" />
+			</li>
+		</ul>
+		<center>
+		<h:messages errorStyle="color:red; display:block; background-color:yellow;" />
+		<table>
+			<tr>
+				<td>
+					Nome:
+				</td>
+				<td>
+					<h:inputText value="#{animalBeans.animal.nome}" />
+				</td>
+			</tr>
+			<tr>
+				<td>
+					Peso:
+				</td>
+				<td>
+					<h:inputText value="#{animalBeans.animal.peso}" />
+				</td>
+			</tr>
+			<tr>
+				<td>
+					Quantidade:
+				</td>
+				<td>
+					<h:inputText value="#{animalBeans.animal.quantdade}" />
+				</td>
+			</tr>
+			<tr>
+				<td>
+					Preco:
+				</td>
+				<td>
+					<h:inputText value="#{animalBeans.animal.preco}" />
+				</td>
+			</tr>
+			<tr>
+				<td>
+					Tipos:
+				</td>
+				<td>
+					<h:selectOneMenu id="tipo" value="#{animalBeans.tipo.codigo}">
+						<f:selectItems  value="#{animalBeans.tipos}" var="a"
+								itemLabel="#{a.nome}" itemValue="#{a.codigo}"/>  
+					</h:selectOneMenu>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					Fornecedores:
+				</td>
+				<td>
+					<h:selectOneMenu value="#{animalBeans.pessoaJuridica.codigo}">
+						<f:selectItems  value="#{animalBeans.fornecedores}" var="a"
+								itemLabel="#{a.nomeFantasia}" itemValue="#{a.codigo}"/>
+					</h:selectOneMenu>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<h:commandButton value="cadastrar" action="#{animalBeans.cadastarAnimal}" style="border-radius:4px;" />
+				</td>
+			</tr>
+		</table>
+		</center>
+	</h:form>
+	<i:include src="/footer.xhtml" />
+</h:body>
+</html>

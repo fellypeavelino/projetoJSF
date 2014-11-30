@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:i="http://java.sun.com/jsf/facelets">
+<h:head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+
+</h:head>
+<i:include src="/header.xhtml" />
+<h:body>
+	<br/>
+	<h:form>
+		<h:commandButton value="Finalizar Compra" action="#{compraBeans.cadastrarCarrinhoDeCotacao}" style="#{compraBeans.revelarBotaoDeCompra}"/>
+		<center>
+		<label style="color:#709fe0">
+			#{compraBeans.mensagens}
+		</label>
+		<h:dataTable value="#{cotacaoBeans.cotacoes}" var="cotacoes">
+			<f:facet name="header">Produtos em Cotação</f:facet> 
+			<h:column> 
+					<f:facet name="header">Nome</f:facet> 				
+					<h:outputText value="#{cotacoes.nome}" />
+			</h:column> 
+			<h:column> 
+					<f:facet name="header">Preco</f:facet> 				
+					<h:outputText value="#{cotacoes.preco}" />
+			</h:column> 
+			<h:column> 
+					<f:facet name="header">Quantidade</f:facet> 				
+					<h:outputText value="#{cotacoes.quantiddae}" />
+			</h:column> 
+			<h:column>
+					<f:facet name="header">Compra</f:facet> 
+					<h:commandButton action="#{cotacaoBeans.prepararCompra(cotacoes)}" value="Comprar" />
+			</h:column> 
+		</h:dataTable>
+		</center>
+	</h:form>
+	<i:include src="/footer.xhtml" />
+</h:body>
+</html>

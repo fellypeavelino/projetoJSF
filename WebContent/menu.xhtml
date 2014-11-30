@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:i="http://java.sun.com/jsf/facelets">
+<h:head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+</h:head>
+<i:include src="/header.xhtml" />
+<br/>
+<h:body>
+	<h:form>
+		<p:menubar>
+			<p:submenu label="Cadastros" icon="ui-icon-document">
+           		<p:menuitem value="Clientes" url="Cliente/lista.xhtml" />
+                <p:menuitem value="Fornecedores" url="Fornecedor/lista.xhtml" />
+                <p:menuitem value="Produtos" url="Produtos/listar.xhtml" />
+                <p:menuitem value="Animais" url="Animais/lista.xhtml" />
+                <p:menuitem value="Estoque" url="Estoque/lista.xhtml" />
+			</p:submenu>
+			<p:menuitem value="Estoque" url="#" />
+			<p:menuitem value="Entregas" url="#" />
+			<p:menuitem value="Cotação" url="Cotacaoes/lista.xhtml" />
+		</p:menubar>
+	</h:form>
+	<br/>
+	<h:form>
+	<center >
+		<h:dataTable value="#{produtoBeans.produtos}" var="produto" style="#{pessoaFisicaBeans.ocultarDataTable}">
+			<f:facet name="header">Produtos Estoque</f:facet> 
+			<h:column> 
+				<f:facet name="header">Nome</f:facet> 				
+				<h:outputText value="#{produto.nome}" /> 
+			</h:column> 
+			<h:column> 
+				<f:facet name="header">Data Entrada</f:facet> 				
+				<h:outputText value="#{produto.entrada}">
+					<f:convertDateTime pattern="dd/MM/yyyy"/>  
+				</h:outputText> 
+			</h:column> 
+			<h:column> 
+				<f:facet name="header">Data saida</f:facet> 				
+				<h:outputText value="#{produto.saida}" style="#{produto.estilo}">
+					<f:convertDateTime pattern="dd/MM/yyyy"/>  
+				</h:outputText> 
+			</h:column> 
+			<h:column>
+				<f:facet name="header">Cotações</f:facet>
+				<h:commandButton action="#{produtoBeans.extouroDePrazo(produto)}" value="cotação" style="border-radius:4px;" />
+			</h:column>
+			<h:column >
+				<f:facet name="header">Exclução</f:facet>
+				<h:commandButton action="#{produtoBeans.removerProduto(produto)}" value="excluir" style="#{produto.remocao}" />
+			</h:column>
+		</h:dataTable>
+		
+		<h:dataTable value="#{produtoBeans.produtosNavalidade}" var="produto" style="#{pessoaFisicaBeans.ocultarDataTable2}">
+			<f:facet name="header">Produtos Estoque.</f:facet> 
+			<h:column> 
+				<f:facet name="header">Nome</f:facet> 				
+				<h:outputText value="#{produto.nome}" /> 
+			</h:column> 
+			<h:column> 
+				<f:facet name="header">Preço</f:facet> 				
+				<h:outputText value="#{produto.preco}" /> 
+			</h:column> 
+			<h:column> 
+				<f:facet name="header">Quantidade</f:facet> 				
+				<h:outputText value="#{produto.quantiddae}" /> 
+			</h:column> 
+			<h:column> 
+				<f:facet name="header">Data Entrada</f:facet> 				
+				<h:outputText value="#{produto.entrada}">
+					<f:convertDateTime pattern="dd/MM/yyyy"/>  
+				</h:outputText> 
+			</h:column> 
+			<h:column> 
+				<f:facet name="header">Data saida</f:facet> 				
+				<h:outputText value="#{produto.saida}" style="#{produto.estilo}">
+					<f:convertDateTime pattern="dd/MM/yyyy"/>  
+				</h:outputText> 
+			</h:column> 	
+		</h:dataTable>
+	</center>
+	</h:form>
+	<h:messages />
+	<i:include src="/footer.xhtml" />
+</h:body>
+</html>
+<!--    
+            	<p:menuitem value="Open" url="#" />
+            	<p:separator />
+            	<p:menuitem value="Quit" url="#" />
+-->
